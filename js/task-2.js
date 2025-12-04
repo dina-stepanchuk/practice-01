@@ -1,37 +1,28 @@
-const images = [
+const products = [
   {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
+    url: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
+    name: 'Burger',
   },
   {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+    url: 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg',
+    name: 'Pizza',
   },
   {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-  {
-    url: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
-    alt: 'Alpine Spring Meadows',
-  },
-  {
-    url: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
-    alt: 'Nature Landscape',
-  },
-  {
-    url: 'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
-    alt: 'Lighthouse Coast Sea',
+    url: 'https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg',
+    name: 'Salad',
   },
 ];
-
-const gallery = document.querySelector('.gallery');
-for (const image of images) {
+const gallery = document.querySelector('.products-gallery');
+const items = [];
+for (const product of products) {
   const li = document.createElement('li');
   const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-
-  li.append(img);
-  gallery.append(li);
+  const p = document.createElement('p');
+  img.src = product.url;
+  img.alt = product.name;
+  p.textContent = product.name;
+  li.append(img, p);
+  items.push(li);
 }
+
+gallery.append(...items);
